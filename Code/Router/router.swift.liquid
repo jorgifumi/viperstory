@@ -8,11 +8,13 @@
 
 class {{ module_info.name }}Router {
 
+    weak var viewController: {{ module_info.name }}ViewController!
+
 }
 
 
 // MARK: - {{ module_info.name }}RouterInput
 
-extension Router: {{ module_info.name }}RouterInput {
+extension {{ module_info.name }}Router: {{ module_info.name }}RouterInput {
 
 }

@@ -20,7 +20,7 @@ class {{ module_info.name }}ModuleConfigurator {
     private func configure(viewController: {{ module_info.name }}ViewController) {
 
         let router = {{ module_info.name }}Router()
-	router.viewController = viewController
+        router.viewController = viewController
 
         let presenter = {{ module_info.name }}Presenter()
         presenter.view = viewController
