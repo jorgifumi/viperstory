@@ -12,7 +12,7 @@ class {{ module_info.name }}ModuleConfigurator {
 
     static func configureModule() -> UIViewController {
 
-        guard let viewController = UIStoryboard(name: "{{ module_info.name }}ViewController", bundle: nil).instantiateInitialViewController() as? PhoneViewController else {
+        guard let viewController = UIStoryboard(name: "{{ module_info.name }}ViewController", bundle: nil).instantiateInitialViewController() as? {{ module_info.name }}ViewController else {
             fatalError("Can't instantiate ViewController")
         }
 
