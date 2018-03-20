@@ -10,17 +10,13 @@ import UIKit
 
 class {{ module_info.name }}ModuleConfigurator {
 
-    func configureModuleForViewInput<UIViewController>(viewInput: UIViewController) {
+    static func configureModule() -> UIViewController {
 
-        if let viewController = viewInput as? {{ module_info.name }}ViewController {
-            configure(viewController: viewController)
+        guard let viewController = UIStoryboard(name: "{{ module_info.name }}ViewController", bundle: nil).instantiateInitialViewController() as? PhoneViewController else {
+            fatalError("Can't instantiate ViewController")
         }
-    }
 
-    private func configure(viewController: {{ module_info.name }}ViewController) {
-
-        let router = {{ module_info.name }}Router()
-        router.viewController = viewController
+        let router = {{ module_info.name }}Router(viewController: viewController)
 
         let presenter = {{ module_info.name }}Presenter()
         presenter.view = viewController
@@ -31,5 +27,7 @@ class {{ module_info.name }}ModuleConfigurator {
 
         presenter.interactor = interactor
         viewController.output = presenter
+
+        return viewController
     }
 }
